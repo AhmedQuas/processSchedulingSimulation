@@ -24,9 +24,3 @@ class fcfs:
                 proc.exec_stop = cpu_clock
                 self.finished_queue.append(proc)
                 del process_waiting[0]
-
-
-
-
-
-
