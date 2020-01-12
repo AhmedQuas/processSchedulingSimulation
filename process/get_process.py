@@ -58,7 +58,6 @@ def read_process(file_name):
         process_exec_time.append(process_line)
 
     # create Process object list
-    print(process_exec_time)
     for exec_row in process_exec_time:
         process_row = []
         for exec_time in exec_row:
