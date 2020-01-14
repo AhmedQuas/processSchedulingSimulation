@@ -15,6 +15,7 @@ class RoundRobin:
         index = 0
         while len(process_waiting) is not 0:
             quant = self.quant
+            # detect list overflow & start from 0
             if len(process_waiting) - index <= 0:
                 index = 0
 
@@ -23,21 +24,16 @@ class RoundRobin:
             if proc.exec_start is -1:
                 proc.exec_start = cpu_clock
 
-            cpu_clock += quant
-
             if proc.remain - quant <= 0:
-                quant = quant-proc.remain
+                cpu_clock += proc.remain
                 proc.remain = 0
-                proc.exec_stop = cpu_clock - quant
+                proc.exec_stop = cpu_clock
                 self.finished_queue.append(proc)
                 del process_waiting[index]
+                continue
 
-                #get new process & execute the rest of quant
-                if len(process_waiting) is not 0:
-                    proc = process_waiting[0]
-                    proc.exec_start = cpu_clock - quant
-                else:
-                    return
-
+            cpu_clock += quant
             proc.remain -= quant
             index += 1
+
+
