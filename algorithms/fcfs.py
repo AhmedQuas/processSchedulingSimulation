@@ -15,7 +15,7 @@ class fcfs:
             proc = process_waiting[0]
             cpu_clock += 1
 
-            if proc.exec_start is -1:
+            if proc.exec_start is None:
                 proc.exec_start = cpu_clock
 
             proc.remain -= 1

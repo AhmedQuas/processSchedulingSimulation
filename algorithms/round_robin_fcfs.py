@@ -21,7 +21,7 @@ class RoundRobin:
 
             proc = process_waiting[index]
 
-            if proc.exec_start is -1:
+            if proc.exec_start is None:
                 proc.exec_start = cpu_clock
 
             if proc.remain - quant <= 0:
@@ -35,5 +35,3 @@ class RoundRobin:
             cpu_clock += quant
             proc.remain -= quant
             index += 1
-
-

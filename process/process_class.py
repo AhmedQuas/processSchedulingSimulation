@@ -4,8 +4,8 @@ class Process:
     def __init__(self, exec_time):
         self.exec_time = exec_time
         self.remain = exec_time
-        self.exec_start = -1
-        self.exec_stop = -1
+        self.exec_start = None
+        self.exec_stop = None
     
     def is_finished(self):
         return self.remain is 0
