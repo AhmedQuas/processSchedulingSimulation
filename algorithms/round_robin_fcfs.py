@@ -13,6 +13,7 @@ class RoundRobin:
     def rr_alg(self, process_waiting):
         cpu_clock = 0
         index = 0
+        local_finished_queue = []
         while len(process_waiting) is not 0:
             quant = self.quant
             # detect list overflow & start from 0
@@ -28,10 +29,11 @@ class RoundRobin:
                 cpu_clock += proc.remain
                 proc.remain = 0
                 proc.exec_stop = cpu_clock
-                self.finished_queue.append(proc)
+                local_finished_queue.append(proc)
                 del process_waiting[index]
                 continue
 
             cpu_clock += quant
             proc.remain -= quant
             index += 1
+        self.finished_queue.append(local_finished_queue)

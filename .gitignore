@@ -1,4 +1,4 @@
 .idea
 *.pyo
 *.pyc
-process_file.txt
+process_file*.txt

@@ -1,11 +1,11 @@
-from copy import *
+from copy import deepcopy
 from process.get_process import *
 from algorithms.fcfs import *
 from algorithms.lcfs import *
 from algorithms.sjf import *
 from algorithms.round_robin_fcfs import *
 
-# generate_process('process_file.txt', 1, 20)
+generate_process('process_file.txt', 1, 20)
 
 all_process = read_process('process_file.txt')
 

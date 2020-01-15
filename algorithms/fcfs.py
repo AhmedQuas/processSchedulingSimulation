@@ -11,6 +11,7 @@ class fcfs:
 
     def fcfs_alg(self, process_waiting):
         cpu_clock = 0
+        local_finished_queue = []
         while len(process_waiting) is not 0:
             proc = process_waiting[0]
             cpu_clock += 1
@@ -22,5 +23,6 @@ class fcfs:
 
             if proc.remain is 0:
                 proc.exec_stop = cpu_clock
-                self.finished_queue.append(proc)
+                local_finished_queue.append(proc)
                 del process_waiting[0]
+        self.finished_queue.append(local_finished_queue)
