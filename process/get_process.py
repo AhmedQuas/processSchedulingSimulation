@@ -26,8 +26,7 @@ def generate_process(file_name, start_scope=1, end_scope=20, repeat=100, process
 
 def read_process(file_name):
     """
-        Read process executing time form file
-
+        Read process executing time form file \n
         Parameters:
 
         file_name : name of file with exec time data

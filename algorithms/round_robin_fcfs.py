@@ -37,3 +37,6 @@ class RoundRobin:
             proc.remain -= quant
             index += 1
         self.finished_queue.append(local_finished_queue)
+
+    def get_finished_queue(self):
+        return self.finished_queue

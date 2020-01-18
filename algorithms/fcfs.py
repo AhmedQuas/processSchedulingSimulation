@@ -26,3 +26,6 @@ class fcfs:
                 local_finished_queue.append(proc)
                 del process_waiting[0]
         self.finished_queue.append(local_finished_queue)
+
+    def get_finished_queue(self):
+        return self.finished_queue

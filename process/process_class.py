@@ -14,4 +14,4 @@ class Process:
         return self.exec_start
 
     def get_processing_time(self):
-        return self.exec_stop - self.exec_start + 1
+        return self.exec_stop
