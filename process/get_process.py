@@ -39,12 +39,8 @@ def read_process(file_name):
 
     # ask if user wants to override file
     if not path.isfile(file_name):
-        print("Given file don`t exist, do you want to create it? y/n")
-        ans = input()
-        if ans is 'y':
-            generate_process(file_name)
-        else:
-            return
+        print("Given file don`t exist, I will create it")
+        generate_process(file_name)
 
     file = open(file_name, 'r')
     process_exec_time = []
