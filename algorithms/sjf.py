@@ -1,7 +1,22 @@
 class sjf:
-    """SJF algorithm definition"""
+    """
+        SJF algorithm definition
+        Methods: \n
+        sort_sjf_list(): sort process queue from exec_sjf_list(), bubble sort, shortest job is first \n
+        exec_sjf_list(): split process_list to single queues and pass it to sjf_alg() \n
+        sjf_alg(): this method is queue scheduler and executer \n
+        get_finished_queue(): return list of finished process \n
+        Attributes: \n
+        process_list(list): list of process queues to be executed \n
+        finished_queue(list): list of finished process queues \n
+    """
 
     def __init__(self, process_list):
+        """
+            Create a sjf algorithm object \n
+            Parameters: \n
+            process_list(list): list of queues of process to be executed\n
+        """
         self.process_list = process_list
         self.finished_queue = []
 
@@ -20,6 +35,11 @@ class sjf:
             self.sjf_alg(process_set)
 
     def sjf_alg(self, process_waiting):
+        """
+            This method is queue scheduler and executer \n
+            Parameters: \n
+            process_waiting(list): list of process to be scheduled and executed\n
+        """
         cpu_clock = 0
         local_finished_queue = []
         while len(process_waiting) is not 0:

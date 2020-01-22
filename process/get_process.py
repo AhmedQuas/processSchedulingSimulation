@@ -4,7 +4,17 @@ from process.process_class import *
 
 
 def generate_process(file_name, start_scope=1, end_scope=20, repeat=100, process_number=100):
-
+    """
+        Generate/draw process execution time & save to file \n
+        Parameters: \n
+        file_name (str): name of file where process execution time will be saved \n
+        start_scope (int): start of uniform distribution, optional (1) \n
+        end_scope (int): end of uniform distribution, optional (20) \n
+        repeat (int): number of process in one queue, optional (100) \n
+        process_number(int): number of queues, optional (100) \n
+        Returns: \n
+        Save file on disk space & return bool if new file was created
+    """
     # ask if user wants to override file
     if path.isfile(file_name):
         print("Given file already exist, do you want to override it? y/n")
@@ -27,15 +37,11 @@ def generate_process(file_name, start_scope=1, end_scope=20, repeat=100, process
 def read_process(file_name):
     """
         Read process executing time form file \n
-        Parameters:
-
-        file_name : name of file with exec time data
-
-        Returns:
-
-        list: list of Process
-
-       """
+        Parameters: \n
+        file_name(str): name of file with process execution time data \n
+        Returns: \n
+        list: list of Process \n
+    """
 
     # ask if user wants to override file
     if not path.isfile(file_name):

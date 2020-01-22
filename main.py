@@ -7,13 +7,19 @@ from algorithms.round_robin_fcfs import *
 from statistic.statistic import *
 from statistic.hist_plot_req import *
 
+# generate file with process execution time
 #generate_process('process_file.txt', 1, 20)
 
+# read process execution file
 all_process = read_process('process_file.txt')
 
+# make a copy of process execution time list & pass to fcfs object constructor
 fcfs_alg = fcfs(deepcopy(all_process))
+# schedule and execute queues of process
 fcfs_alg.exec_fcfs_list()
+# make some statistics
 fcfs_statistic = AlgorithmStatistic(fcfs_alg.get_finished_queue(), 'fcfs.txt', 'FCFS')
+# print final algorithm statistics
 fcfs_statistic.generate_stats()
 
 lcfs_alg = lcfs(deepcopy(all_process))
@@ -41,7 +47,7 @@ rr_alg_15.exec_rr_list()
 rr_alg_15_statistic = AlgorithmStatistic(rr_alg_15.get_finished_queue(), 'rr_15.txt', 'Round Robin with q = 1.5')
 rr_alg_15_statistic.generate_stats()
 
-#Generate histplot
+#Check installed packeges & generate histplot
 print("Do you want to generate histogram to each algorithm ? y/n")
 ans = input()
 if ans is 'y' and check_requirements():
@@ -53,4 +59,3 @@ if ans is 'y' and check_requirements():
     rr_alg_15_statistic.generate_histplot()
 
 print('Done')
-
