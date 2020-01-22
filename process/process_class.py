@@ -11,7 +11,7 @@ class Process:
         return self.remain is 0
 
     def get_waiting_time(self):
-        return self.exec_start
+        return self.exec_stop - self.exec_time + 1
 
     def get_processing_time(self):
         return self.exec_stop
